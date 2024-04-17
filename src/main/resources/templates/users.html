@@ -181,9 +181,9 @@
                                                                                id="password" class="form-control"/>
                                                                     </div>
                                                                     <div class="mb-3 col-12 col-md-6 offset-md-3">
-                                                                        <label for="role1"><b>ROLE_ADMIN</b></label>
+                                                                        <label for="role1"><b>ADMIN</b></label>
                                                                        <input type="checkbox" id="role1" name="role" value="1">
-                                                                        <label for="role2">ROLE_USER:</label>
+                                                                        <label for="role2"><b>USER</b></label>
                                                                         <input type="checkbox" id="role2" name="role" value="2">
 
                                                                     </div>
@@ -325,8 +325,8 @@
                                         <div class="mb-3 col-12 col-md-4 offset-md-4">
                                             <label>Roles:</label>
                                             <select multiple size="2" name="roles" required class="form-control form-control-sm">
-                                                <option value="1">ROLE_USER</option>
-                                                <option selected="selected" value="2">ROLE_ADMIN</option>
+                                                <option value="2">ROLE_USER</option>
+                                                <option selected="selected" value="1">ROLE_ADMIN</option>
                                             </select>
                                         </div>
                                         <input type="hidden" th:name="userId"/>
