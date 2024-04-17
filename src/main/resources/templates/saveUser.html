@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Save User</title>
+</head>
+<body>
+<h2>Add new user</h2>
+<form th:method="POST" th:action="@{/admin/userCreate}" th:object="${user}">
+    <label for="username">Enter name: </label>
+    <input type="text" th:field="*{username}" id="username"/>
+    <p th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></p>
+    <br/>
+    <label for="lastName">Enter last name: </label>
+    <input type="text" th:field="*{lastName}" id="lastName"/>
+    <p th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></p>
+    <br/>
+    <label for="age">Enter age: </label>
+    <input type="text" th:field="*{age}" id="age"/>
+    <p th:if="${#fields.hasErrors('age')}" th:errors="*{age}"></p>
+    <br/>
+    <label for="password">Enter password: </label>
+    <input type="text" th:field="*{password}" id="password"/>
+    <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p>
+    <br/>
+    <label>Roles:</label>
+    <select multiple size="2" name="roles" required class="form-control form-control-sm">
+        <option value="1">ROLE_USER</option>
+        <option selected="selected" value="2">ROLE_ADMIN</option>
+    </select>
+
+
+    <br/>
+    <input type="submit" value="Save"/>
+</form>
+<input align="right" type="button" value="logout"
+       onclick="window.location.href = '/logout'"/>
+</body>
+
+</html>
