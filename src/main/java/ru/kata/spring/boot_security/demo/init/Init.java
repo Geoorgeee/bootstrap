@@ -9,6 +9,8 @@ import ru.kata.spring.boot_security.demo.service.UserServiceImpl;
 
 import javax.annotation.PostConstruct;
 import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
 
 @Component
 public class Init {
@@ -22,20 +24,22 @@ public class Init {
     }
     @PostConstruct
     void kak(){
-         /*roleRepository.save(new Role("ROLE_ADMIN"));
-        roleRepository.save(new Role("ROLE_USER"));*/
+        Role rol1 = new Role("ROLE_USER");
+        Role rol2 = new Role("ROLE_ADMIN");
+        roleRepository.save(rol1);
+        roleRepository.save(rol2);
         User user1 = new User();
         user1.setPassword("100");
-        user1.setRoles(Collections.singleton(new Role("ROLE_ADMIN")));
+        user1.setRoles(Collections.singleton(rol2));
         user1.setAge((byte) 10);
         user1.setUsername("goga");
-        user1.setLastName("goga");
+        user1.setLastname("goga");
         User user2 = new User();
         user2.setPassword("100");
-        user2.setRoles( Collections.singleton(new Role("ROLE_USER")));
+        user2.setRoles( Collections.singleton(rol1));
         user2.setAge((byte) 10);
         user2.setUsername("gowa");
-        user2.setLastName("gowa");
+        user2.setLastname("gowa");
         userService.addUser(user1);
         userService.addUser(user2);
     }

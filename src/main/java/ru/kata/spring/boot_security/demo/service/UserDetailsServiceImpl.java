@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 import ru.kata.spring.boot_security.demo.model.User;
 import ru.kata.spring.boot_security.demo.repository.UserRepository;
 
-import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 

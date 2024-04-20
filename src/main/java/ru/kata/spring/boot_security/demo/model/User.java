@@ -19,7 +19,7 @@ public class User {
     public String username;
 
     @Column(name = "last_name")
-    public String lastName;
+    public String lastname;
 
     @Column(name = "age")
     public byte age;
@@ -30,7 +30,7 @@ public class User {
     @Transient
     private String passwordConfirm;
 
-    @ManyToMany(fetch = FetchType.LAZY,cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    @ManyToMany(fetch = FetchType.LAZY)
     private Set<Role> roles;
 
 
@@ -39,16 +39,16 @@ public class User {
     public User() {
     }
 
-    public User(Long id, String username, String lastName, byte age) {
+    public User(Long id, String username, String lastname, byte age) {
         this.id = id;
         this.username = username;
-        this.lastName = lastName;
+        this.lastname = lastname;
         this.age = age;
     }
 
-    public User(String username, String lastName, byte age) {
+    public User(String username, String lastname, byte age) {
         this.username = username;
-        this.lastName = lastName;
+        this.lastname = lastname;
         this.age = age;
     }
 
@@ -92,12 +92,12 @@ public class User {
         this.roles = roles;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getLastname() {
+        return lastname;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setLastname(String lastName) {
+        this.lastname = lastName;
     }
 
     public Byte getAge() {
@@ -121,12 +121,12 @@ public class User {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return id == user.id && age == user.age && Objects.equals(username, user.username) && Objects.equals(lastName, user.lastName);
+        return id == user.id && age == user.age && Objects.equals(username, user.username) && Objects.equals(lastname, user.lastname);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, username, lastName, age);
+        return Objects.hash(id, username, lastname, age);
     }
 
     @Override
@@ -134,7 +134,7 @@ public class User {
         return "User{" +
                 "id=" + id +
                 ", name='" + username + '\'' +
-                ", lastName='" + lastName + '\'' +
+                ", lastName='" + lastname + '\'' +
                 ", age=" + age +
                 '}';
     }
