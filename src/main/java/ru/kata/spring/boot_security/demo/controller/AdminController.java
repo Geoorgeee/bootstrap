@@ -46,8 +46,19 @@ public class AdminController {
 
     @PutMapping("/addOrUpdate/{id}")
     public ResponseEntity<HttpStatus> add(@PathVariable("id") Long id, @RequestBody @Valid User user, BindingResult bindingResult) {
+        String pas = getUserById(id).getPassword();
         user.setId(id);
-        userService.addUser(user);
+        userService.updateUser(user);
+        if(user.getPassword().isEmpty()){
+            user.setPassword(pas);
+            user.setId(id);
+            userService.updateUser(user);
+            return ResponseEntity.ok(HttpStatus.OK);
+        }
+        else{
+            userService.addUser(user);
+        }
+
         return ResponseEntity.ok(HttpStatus.OK);
     }
 

@@ -204,7 +204,7 @@ async function viewEditModal(id) {
     form.username.value = userEdit.username;
     form.lastname.value = userEdit.lastname;
     form.age.value = userEdit.age;
-    form.password.value = userEdit.password;
+    //form.password.value = userEdit.password;
 
     $('#editRolesUser').empty();
 
